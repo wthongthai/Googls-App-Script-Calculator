@@ -13,14 +13,6 @@ function include(filename) {
       .getContent();
 }
 
-function getData(worksheet, sheet, range) {
-  return SpreadsheetApp
-      .openById(worksheet)
-      .getSheetByName(sheet)
-      .getRange(range)
-      .getValues();
-}
-
 function getVal(workbook, sheet, range) {
   return SpreadsheetApp
       .openById(workbook)
