@@ -1,0 +1,90 @@
+<script>
+  // the function calls "val" because it is the value it gets with .getval() when the button is clicked while user input can be called directly w/o any references?
+  function updateText_KatzPSE1(val) {
+    var display = document.getElementById('holder_KatzPSE1');
+    var num_code_EoC = document.getElementById('num_code_KatzPSE1_EoC').value;
+    var num_code_MI = document.getElementById('num_code_KatzPSE1_MI').value;
+    var num_code_IT = document.getElementById('num_code_KatzPSE1_IT').value;
+    var num_code_PLE = document.getElementById('num_code_KatzPSE1_PLE').value;
+    var num_code_PLE_short = document.getElementById('num_code_KatzPSE1_PLE_short').value;
+    var num_pr_EoC = document.getElementById('num_pr_KatzPSE1_EoC').value;
+    var num_pr_MI = document.getElementById('num_pr_KatzPSE1_MI').value;
+    var num_pr_IT = document.getElementById('num_pr_KatzPSE1_IT').value;
+    var num_pr_PLE = document.getElementById('num_pr_KatzPSE1_PLE').value;
+    var num_pr_PLE_short = document.getElementById('num_pr_KatzPSE1_PLE_short').value;
+    var num_proof_EoC = document.getElementById('num_proof_KatzPSE1_EoC').value;
+    var num_proof_MI = document.getElementById('num_proof_KatzPSE1_MI').value;
+    var num_proof_IT = document.getElementById('num_proof_KatzPSE1_IT').value;
+    var num_proof_PLE = document.getElementById('num_proof_KatzPSE1_PLE').value;
+    var num_proof_PLE_short = document.getElementById('num_proof_KatzPSE1_PLE_short').value;
+    var code_rate_EoC = val[1];
+    var code_rate_MI = val[2];
+    var code_rate_IT = val[3];
+    var code_rate_PLE = val[5];
+    var code_rate_PLE_short = val[4];
+    var pr_rate_EoC = val[7];
+    var pr_rate_MI = val[8];
+    var pr_rate_IT = val[9];
+    var pr_rate_PLE = val[11];
+    var pr_rate_PLE_short = val[10];
+    var proof_rate_EoC = val[13];
+    var proof_rate_MI = val[14];
+    var proof_rate_IT = val[15];
+    var proof_rate_PLE = val[17];
+    var proof_rate_PLE_short = val[16];
+    var ewh = ((num_code_EoC * code_rate_EoC) + (num_pr_EoC * pr_rate_EoC) + (num_proof_EoC * proof_rate_EoC)
+    + (num_code_MI * code_rate_MI) + (num_pr_MI * pr_rate_MI) + (num_proof_MI * proof_rate_MI)
+    + (num_code_IT * code_rate_IT) + (num_pr_IT * pr_rate_IT) + (num_proof_IT * proof_rate_IT)
+    + (num_code_PLE * code_rate_PLE) + (num_pr_PLE * pr_rate_PLE) + (num_proof_PLE * proof_rate_PLE)
+    + (num_code_PLE_short * code_rate_PLE_short) + (num_pr_PLE_short * pr_rate_PLE_short) + (num_proof_PLE_short * proof_rate_PLE_short))/60;
+    display.innerHTML = 'Your EWH is: ' + ewh;
+  }
+  
+    function updateText_MI4(val) {
+    var display = document.getElementById('holder_MI4');
+    var num_code = document.getElementById('num_code_MI4').value;
+    var num_pr = document.getElementById('num_pr_MI4').value;
+    var num_proof = document.getElementById('num_proof_MI4').value;
+    var code_rate = val[0];
+    var pr_rate = val[1];
+    var proof_rate = val[2];
+    var ewh = (num_code * code_rate + num_pr * pr_rate + num_proof * proof_rate)/60;
+    display.innerHTML = 'Your EWH is: ' + ewh;
+  }
+  
+   function updateText_HRW10(val) {
+    var display = document.getElementById('holder_HRW10');
+    var num_code = document.getElementById('num_code_HRW10').value;
+    var num_pr = document.getElementById('num_pr_HRW10').value;
+    var num_proof = document.getElementById('num_proof_HRW10').value;
+    var code_rate = val[0];
+    var pr_rate = val[1];
+    var proof_rate = val[2];
+    var ewh = (num_code * code_rate + num_pr * pr_rate + num_proof * proof_rate)/60;
+    display.innerHTML = 'Your EWH is: ' + ewh;
+  }
+  
+  function updateText_CJ10(val) {
+    var display = document.getElementById('holder_CJ10');
+    var num_code = document.getElementById('num_code_CJ10').value;
+    var num_pr = document.getElementById('num_pr_CJ10').value;
+    var num_proof = document.getElementById('num_proof_CJ10').value;
+    var code_rate = val[0];
+    var pr_rate = val[2];
+    var proof_rate = val[4];
+    var ewh = (num_code * code_rate + num_pr * pr_rate + num_proof * proof_rate)/60;
+    display.innerHTML = 'Your EWH is: ' + ewh;
+  }
+  function updateText_SerPSET9(val) {
+    var display = document.getElementById('holder_SerPSET9');
+    var num_code = document.getElementById('num_code_SerPSET9').value;
+    var num_pr = document.getElementById('num_pr_SerPSET9').value;
+    var num_proof = document.getElementById('num_proof_SerPSET9').value;
+    var code_rate = val[0];
+    var pr_rate = val[2];
+    var proof_rate = val[4];
+    var ewh = (num_code * code_rate + num_pr * pr_rate + num_proof * proof_rate)/60;
+    display.innerHTML = 'Your EWH is: ' + ewh;
+  }
+</script>
+

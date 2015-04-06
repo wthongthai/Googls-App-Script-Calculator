@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<?!= include('Stylesheet'); ?>
+<!-- start of accordion header: http://jqueryui.com/accordion/#default -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+      active: false,
+      heightStyle: "content"
+    });
+  });
+  </script>
+<!-- end of accordion header -->
+
+<h1>EWH Calculator</h1>
+<div id="accordion">
+    <h3>How To Use</h3>
+    <div>
+        <ul>
+            <li>Enter the number of questions you have coded, peer reviewed, and/or proofed in the appropriate column.</li>
+            <li>Hit "Submit!"</li>
+        </ul>
+    </div>
+    <h3>KatzPSE1 EWH Calculator</h3>
+    <div>
+        <table class='calculator'>
+            <tr>
+                <th>Task</th>
+                <th>EoC</th>
+                <th>MI</th>
+                <th>IT</th>
+                <th>PLE</th>
+                <th>PLE-short</th>
+            </tr>
+            <tr>
+                <td>Coded</td>
+                <td><input type="text" id="num_code_KatzPSE1_EoC" /></td>
+                <td><input type="text" id="num_code_KatzPSE1_MI" /></td>
+                <td><input type="text" id="num_code_KatzPSE1_IT" /></td>
+                <td><input type="text" id="num_code_KatzPSE1_PLE" /></td>
+                <td><input type="text" id="num_code_KatzPSE1_PLE_short" /></td>
+            </tr>
+            <tr>
+                <td>Peer Reviewed</td>
+                <td><input type="text" id="num_pr_KatzPSE1_EoC" /></td>
+                <td><input type="text" id="num_pr_KatzPSE1_MI" /></td>
+                <td><input type="text" id="num_pr_KatzPSE1_IT" /></td>
+                <td><input type="text" id="num_pr_KatzPSE1_PLE" /></td>
+                <td><input type="text" id="num_pr_KatzPSE1_PLE_short" /></td>
+            </tr>
+            <tr>
+                <td>Proofed</td>
+                <td><input type="text" id="num_proof_KatzPSE1_EoC" /></td>
+                <td><input type="text" id="num_proof_KatzPSE1_MI" /></td>
+                <td><input type="text" id="num_proof_KatzPSE1_IT" /></td>
+                <td><input type="text" id="num_proof_KatzPSE1_PLE" /></td>
+                <td><input type="text" id="num_proof_KatzPSE1_PLE_short" /></td>
+            </tr>
+        </table>
+        <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateText_KatzPSE1).withUserObject(this)
+        .getVal('1qBosk7z3KHiB_E59XrvoX9eqbA410GsggQ6uUSDlw_s', 'All Work','B10:B40')"/>
+        <br>
+        <p id="holder_KatzPSE1"></p>
+        <h4>Expected Rates</h4>
+        <em>Note: All rates are presented as <strong>min/q</strong> and include fix/update/regress time.</em>
+        <? var data = getData('1qBosk7z3KHiB_E59XrvoX9eqbA410GsggQ6uUSDlw_s', 'All Work', 'B11:B39'); ?>
+        <table>
+            <tr>
+                <th class='rates'>Task</th>
+                <th class='rates'>EoC</th>
+                <th class='rates'>MI</th>
+                <th class='rates'>IT</th>
+                <th class='rates'>PLE</th>
+                <th class='rates'>PLE-short</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td><?= data[0] ?></td>
+                <td><?= data[1] ?></td>
+                <td><?= data[2] ?></td>
+                <td><?= data[4] ?></td>
+                <td><?= data[3] ?></td>
+            </tr>
+            <tr>
+                <td>Peer Review</td>
+                <td><?= data[6] ?></td>
+                <td><?= data[7] ?></td>
+                <td><?= data[8] ?></td>
+                <td><?= data[10] ?></td>
+                <td><?= data[9] ?></td>
+            </tr>
+            <tr>
+                <td>Proof</td>
+                <td><?= data[12] ?></td>
+                <td><?= data[13] ?></td>
+                <td><?= data[14] ?></td>
+                <td><?= data[16] ?></td>
+                <td><?= data[15] ?></td>
+            </tr>
+            <tr class='wce'>
+                <td>Text Entry</td>
+                <td><?= data[18] ?></td>
+                <td><?= data[19] ?></td>
+                <td><?= data[20] ?></td>
+                <td><?= data[22] ?></td>
+                <td><?= data[21] ?></td>
+            </tr>
+            <tr class='wce'>
+                <td>Copy Edit</td>
+                <td><?= data[24] ?></td>
+                <td><?= data[25] ?></td>
+                <td><?= data[26] ?></td>
+                <td><?= data[28] ?></td>
+                <td><?= data[27] ?></td>
+            </tr>
+        </table>
+    </div>
+    <h3>HRW10 EWH Calculator</h3>
+    <div>
+       <table>
+            <tr>
+                <th>Task</th>
+                <th>EoC</th>
+            </tr>
+            <tr>
+                <td>Coded</td>
+                <td><input type="text" id="num_code_HRW10" /></td>
+            </tr>
+            <tr>
+                <td>Peer Reviewed</td>
+                <td><input type="text" id="num_pr_HRW10" /></td>
+            </tr>
+            <tr>
+                <td>Proofed</td>
+                <td><input type="text" id="num_proof_HRW10" /></td>
+            </tr>
+        </table>
+        <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateText_HRW10).withUserObject(this)
+        .getVal('13XRPFQRhHxHPvq8IB4TudZvIFfrb1xhTtVBWQQI29qg', 'All Work','B5:B10')"/>
+        <br>
+        <p id="holder_HRW10"></p>  
+    </div>
+    <h3>CJ10 EWH Calculator</h3>
+    <div>
+       <table>
+            <tr>
+                <th>Task</th>
+                <th>EoC</th>
+            </tr>
+            <tr>
+                <td>Coded</td>
+                <td><input type="text" id="num_code_CJ10" /></td>
+            </tr>
+            <tr>
+                <td>Peer Reviewed</td>
+                <td><input type="text" id="num_pr_CJ10" /></td>
+            </tr>
+            <tr>
+                <td>Proofed</td>
+                <td><input type="text" id="num_proof_CJ10" /></td>
+            </tr>
+        </table>
+        <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateText_CJ10).withUserObject(this)
+        .getVal('1Pv2fe_IIcNBxKgqOle0EDd-wazFqMorh6oyi4fxThnk', 'All Work','B6:B11')"/>
+        <br>
+        <p id="holder_CJ10"></p>  
+    </div>
+    <h3>SerPSET9 EWH Calculator</h3>
+    <div>
+       <table>
+            <tr>
+                <th>Task</th>
+                <th>Solution Only</th>
+            </tr>
+            <tr>
+                <td>Coded</td>
+                <td><input type="text" id="num_code_SerPSET9" /></td>
+            </tr>
+            <tr>
+                <td>Peer Reviewed</td>
+                <td><input type="text" id="num_pr_SerPSET9" /></td>
+            </tr>
+            <tr>
+                <td>Proofed</td>
+                <td><input type="text" id="num_proof_SerPSET9" /></td>
+            </tr>
+        </table>
+        <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateText_SerPSET9).withUserObject(this)
+        .getVal('1kdTWqD1Xc_Ef13CUGnmMSBICK0O63-_TMmgEll1ld_A', 'All Work','B6:B10')"/>
+        <br>
+        <p id="holder_SerPSET9"></p>  
+    </div>
+    <h3>MI4 EWH Calculator</h3>
+    <div>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>EoC</th>
+            </tr>
+            <tr>
+                <td>Coded</td>
+                <td><input type="text" id="num_code_MI4" /></td>
+            </tr>
+            <tr>
+                <td>Peer Reviewed</td>
+                <td><input type="text" id="num_pr_MI4" /></td>
+            </tr>
+            <tr>
+                <td>Proofed</td>
+                <td><input type="text" id="num_proof_MI4" /></td>
+            </tr>
+        </table>
+        <input type="button" value="Submit" onclick="google.script.run.withSuccessHandler(updateText_MI4).withUserObject(this)
+        .getVal('1G0dVSM_QxNX_JEreDVrDqYL8N00wuAXy1Q1EFDHwTGM', 'All Work','B5:B7')"/>
+        <br>
+        <p id="holder_MI4"></p>   
+        <h4>Expected Rates</h4>
+        <em>Note: All rates are presented as <strong>min/q</strong> and include fix/update/regress time.</em>
+        <? var data = getData('1G0dVSM_QxNX_JEreDVrDqYL8N00wuAXy1Q1EFDHwTGM', 'All Work', 'B5:B9'); ?>
+        <table>
+            <tr>
+                <th class='rates'>Task</th>
+                <th class='rates'>EoC</th>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td><?= data[0] ?></td>
+            </tr>
+            <tr>
+                <td>Peer Review</td>
+                <td><?= data[1] ?></td>
+            </tr>
+            <tr>
+                <td>Proof</td>
+                <td><?= data[2] ?></td>
+            </tr>
+            <tr class='wce'>
+                <td>Text Entry</td>
+                <td><?= data[3] ?></td>
+            </tr>
+            <tr class='wce'>
+                <td>Copy Edit</td>
+                <td><?= data[4] ?></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<?!= include('JavaScript'); ?>
